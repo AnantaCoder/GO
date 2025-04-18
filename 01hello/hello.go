@@ -1,5 +1,8 @@
 package main 
 
-func main(){
-	println("Hello World")
+func main() {
+	for i := 0; i < 10; i++ {
+		println(i * 1)
+	}
+	println("Hello World");
 }
