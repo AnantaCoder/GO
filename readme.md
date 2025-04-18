@@ -32,11 +32,11 @@
 
 ```bash
 # Clone the repo
-git clone https://github.com/anantacoder/yourrepo.git
-cd yourrepo
+git clone https://github.com/anantacoder/go.git
+cd go
 
 # Build the binary
 go build -o myapp ./cmd/myapp
 
 # (Optional) Install to your $GOPATH/bin
-go install github.com/anantacoder/yourrepo/cmd/myapp@latest
+go install github.com/anantacoder/go/cmd/myapp@latest
