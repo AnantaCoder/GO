@@ -1,6 +1,6 @@
 <!-- Banner GIF -->
 <p align="center">
-  <img src="https://your-domain.com/assets/go-banner.gif" alt="Go Project Banner" width="100%" />
+  <img src="logo.gif" alt="Go Project Banner" width="100%" />
 </p>
 
 # 🎉 My Go Project
@@ -11,16 +11,11 @@
 
 ---
 
-## 🚀 Animated Demo
 
-Watch the CLI come to life in your terminal:
 
-<!-- Asciinema embed: replace `123456` with your cast ID -->
-<p align="center">
-  <a href="https://asciinema.org/a/123456?speed=2">
-    <img src="https://asciinema.org/a/123456.svg?autoplay=1&speed=2" alt="Asciinema demo" />
-  </a>
-</p>
+
+
+
 
 ---
 
