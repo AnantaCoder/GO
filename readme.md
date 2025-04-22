@@ -6,7 +6,6 @@
 # 🎉 My Go Project
 
 [![Go Reference](https://pkg.go.dev/badge/github.com/anantacoder/yourrepo.svg)](https://pkg.go.dev/github.com/anantacoder/GO)
-[![Build Status](https://github.com/AnantaCoder/GO/actions/workflows/go.yml/badge.svg?branch=master)](https://github.com/AnantaCoder/GO/actions)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ---
