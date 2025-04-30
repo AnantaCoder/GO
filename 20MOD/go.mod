@@ -7,7 +7,7 @@ require github.com/gorilla/mux v1.8.1
 // go env => go path , cd GOpath
 // go mod tidy -- remove indirect comment and make them direct
 // go  mod verify -- verify the dependencies
-//go mod graph --- show all dependancies in graph format
+//go mod graph --- show all dependencies in graph format
 
 //PS D:\GO\20MOD> go list -m all
 // github.com/anantacoder/mod
@@ -20,5 +20,5 @@ require github.com/gorilla/mux v1.8.1
 
 //mo mod why [module name] -- why this module is needed 
 
-// go mod vender -- make the modules in the vender folder
+// go mod vender -- make the modules in the vender folder {NOT RECOMMENDED}
 // go mod -mod=vendor main.go --use modules in vender folder 
