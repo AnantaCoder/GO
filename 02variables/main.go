@@ -16,9 +16,9 @@ func main() {
 	fmt.Print(isLoggedIn)
 
 
-	var anotherVariable int; //its not recomended to use this way 
-	anotherVariable = 10
-	fmt.Println(anotherVariable)
+	// var anotherVariable int; //its not recomended to use this way 
+	// anotherVariable = 10
+	// fmt.Println(anotherVariable)
 
 	// implicit type 
 	var website = "Htttp://www.google.com"
@@ -31,3 +31,14 @@ func main() {
 	fmt.Println(LoginToken)
 	fmt.Printf("Variable is of type: %T \n", LoginToken)
 }
+
+/*
+
+| Feature               | `:=`                              | `=`                          |
+|-----------------------|-----------------------------------|-------------------------------|
+| Meaning               | Declare **and assign** a variable | Only **assign** a value       |
+| Type inference        | Yes                               | No (requires variable already declared) |
+| Scope                 | Only inside functions             | Can be used anywhere (where variable is declared) |
+| Declaration required? | Yes (declares variable)           | No (just assigns)             |
+| Example               | `x := 10`                         | `x = 20`                      |
+*/
