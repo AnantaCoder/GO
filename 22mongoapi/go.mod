@@ -1,4 +1,4 @@
-module github.com/anantacoder/mod
+module main
 
 go 1.24.2
 

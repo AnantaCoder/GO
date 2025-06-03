@@ -170,7 +170,7 @@ func deleteOneCourse(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	r := mux.NewRouter()
-	// routes 
+	// routes of the server application . 
 	r.HandleFunc("/", serverHome).Methods("GET")
 	r.HandleFunc("/courses", getAllCourses).Methods("GET")
 	r.HandleFunc("/course/{id}", getOneCourse).Methods("GET")
@@ -200,7 +200,10 @@ func main() {
 	})
 
 	//listen to port
-	log.Fatal(http.ListenAndServe(":4000", r))
+	host := "0.0.0.0"
+	port := "9000"
+	address := host + ":" + port
+	log.Fatal(http.ListenAndServe(address, r))
 }
 
 // go build .
