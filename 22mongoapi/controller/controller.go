@@ -4,42 +4,37 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"os"
 
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-// AEbhRhsd8iE51QDl
-const connectionString = "mongodb+srv://gobhai:AEbhRhsd8iE51QDl@cluster0.dohk5tx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-
-const dbName= "netflix"
-const colName="watchlist"
-
-
-
-//MOST IMPORTANT
 var collection *mongo.Collection
 
-// connect with monogoDB
-
 func init() {
-	//client option
+	// Load .env file
+	err := godotenv.Load()
+	if err != nil {
+		log.Fatal("Error loading .env file")
+	}
+
+	// Read from environment variables
+	connectionString := os.Getenv("MONGO_URI")
+	dbName := os.Getenv("DB_NAME")
+	colName := os.Getenv("COLLECTION_NAME")
+
+	// Set client options
 	clientOption := options.Client().ApplyURI(connectionString)
 
-	//connect to mongodb
+	// Connect to MongoDB
 	client, err := mongo.Connect(context.TODO(), clientOption)
-
 	if err != nil {
 		log.Fatal(err)
 	}
 	fmt.Println("MongoDB connection success")
 
 	collection = client.Database(dbName).Collection(colName)
-
-	//collection instance reference 
 	fmt.Println("Collection instance is ready")
 }
-
-// MONGODB helpers - file
-
