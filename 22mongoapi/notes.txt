@@ -1,0 +1,1 @@
+helpers in controllers -> actual controller func -> router paths -> main end point 

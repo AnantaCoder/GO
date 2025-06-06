@@ -1,6 +1,10 @@
 package router
 
-import "github.com/gorilla/mux"
+import (
+	"main/controller"
+
+	"github.com/gorilla/mux"
+)
 
 func Router() *mux.Router {
 	router := mux.NewRouter()
