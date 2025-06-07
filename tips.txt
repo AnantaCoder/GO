@@ -1,3 +1,16 @@
 1.documentation phase 
  solve problem on advent on code 
 2. Do projects 
+
+| Feature           | Threads (e.g., C/C++, Java)          | Goroutines (Go)                                      |
+| ----------------- | ------------------------------------ | ---------------------------------------------------- |
+| **Definition**    | OS-level abstraction for concurrency | Lightweight user-space threads managed by Go runtime |
+| **Memory Usage**  | \~1MB per thread                     | \~2KB per goroutine                                  |
+| **Creation Time** | Relatively slow (expensive syscall)  | Very fast and cheap                                  |
+| **Scheduling**    | By the OS                            | By Go's runtime scheduler (M\:N model)               |
+| **Scalability**   | Limited (thousands at most)          | Highly scalable (can run millions)                   |
+| **Communication** | Via shared memory (mutex, locks)     | Via channels (safe and built-in)                     |
+| **Blocking**      | OS blocks the thread                 | Go runtime can switch goroutines efficiently         |
+| **Stack Size**    | Fixed (resizing is hard)             | Dynamically grows/shrinks as needed                  |
+| **Crash Safety**  | One thread crash may crash the app   | One goroutine panic can be recovered safely          |
+| **Use Case**      | Heavy background tasks, IO ops       | All concurrency in Go – IO, compute, async ops       |
