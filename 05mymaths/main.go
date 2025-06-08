@@ -2,7 +2,9 @@ package main
 
 import (
 	"fmt"
+	"math/big"
 	"time"
+	"crypto/rand"
 )
 
 func main() {
@@ -25,4 +27,14 @@ func main() {
 	createdDate := time.Date(2025, time.August, 12, 23, 23, 0, 0, time.UTC)
 	fmt.Println(createdDate)
 	fmt.Println(createdDate.Format("01-02-2006 Monday"))
+
+
+	// generating random number using cryptography 
+	max := big.NewInt(100) // range 0-99
+	n, err := rand.Int(rand.Reader, max)
+	if err != nil {
+		fmt.Println("Error generating random number:", err)
+	} else {
+		fmt.Println("Random number (0-99):", n)
+	}
 }

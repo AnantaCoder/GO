@@ -2,52 +2,46 @@ package main
 
 import (
 	"fmt"
-	"net/http"
-	"time"
+	"sync"
 )
 
-func greeter(s string) {
-	for i := 0; i < 5; i++ {
-		time.Sleep(2 * time.Millisecond)
-		fmt.Println(s)
-	}
-}
-
 func main() {
-	go greeter("Hello")
-	greeter("world")
+	fmt.Println("race conditions")
 
+	var score = []int{0}
+	var mu sync.Mutex // for safe concurrent access
 
+	wg := &sync.WaitGroup{}
+	wg.Add(3) // Add 3 goroutines
 
-	var urls = []string{
-		"https://www.google.com",
-		"https://www.facebook.com",
-		"https://www.ai.com",
-		
-	}
-	for _,url := range urls{
-		status,err := getStatusCode(url)
-		if err != nil {
-		fmt.Println("There is an error : ", err)
-		return
-	    }
+	// Goroutine 1
+	go func() {
+		fmt.Println("one r")
+		mu.Lock() //entry section 
+		score = append(score, 1) //critical section 
+		mu.Unlock() // exit section 
+		wg.Done()
+	}()
 
-		fmt.Println(fmt.Sprintf("Status code for %s is %d", url, status))
+	// Goroutine 2
+	go func() {
+		fmt.Println("two r")
+		mu.Lock()
+		score = append(score, 2)
+		mu.Unlock()
+		wg.Done()
+	}()
 
+	// Goroutine 3
+	go func() {
+		fmt.Println("three r")
+		mu.Lock()
+		score = append(score, 3)
+		mu.Unlock()
+		wg.Done()
+	}()
 
-	}
-
+	wg.Wait()
+	fmt.Println("Final score is", score)
 }
-
-// we can use async from sync
-
-func getStatusCode(endpoint string) (int, error) {
-
-	res, err := http.Get(endpoint)
-	if err != nil {
-		fmt.Println("There is an error : ", err)
-		return 0, err
-	}
-	defer res.Body.Close()
-	return res.StatusCode, nil
-}
+//A Mutex (Mutual Exclusion) is used to safely share data across multiple goroutines. It ensures that only one goroutine can access a critical section of code at a time.
